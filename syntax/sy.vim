@@ -16,7 +16,7 @@ if !exists("sylt_no_large_first_implies_type")
     syn match syltType /[A-Z][A-Za-z]\*/
 endif
 
-syn keyword syltKeyword if else loop break continue in blob ret enumt
+syn keyword syltKeyword if elif else loop break continue in blob ret enumt
 syn keyword syltKeyword fn use is do end and or not as external from case
 
 syn match syltKeyword /->/
@@ -26,6 +26,8 @@ syn match syltKeyword /:/
 syn match syltFloat /\i\@<![-+]\?\d*\.\@<!\.\d\+\%([eE][+-]\?\d\+\)\?/ display
 syn match syltFloat /\i\@<![-+]\?\d+\.\@<!\.\d\*\%([eE][+-]\?\d\+\)\?/ display
 syn match syltNumber /\i\@<![-+]\?\d\+\%([eE][+-]\?\d\+\)\?/ display
+syn match syltBool /true/ 
+syn match syltBool /false/ 
 
 syn region syltBlock start="\<do\>" end="\<end\>" fold transparent
 syn region syltString start='"' end='"'
