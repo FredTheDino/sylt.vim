@@ -17,7 +17,7 @@ if !exists("sylt_no_large_first_implies_type")
 endif
 
 syn keyword syltKeyword if elif else loop break continue in blob ret enum
-                      \ fn use is do end and or not as external from case
+                      \ fn pu use is do end and or not as external from case
 
 syn match syltKeyword /->/
 syn match syltKeyword /::/
