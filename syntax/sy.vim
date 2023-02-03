@@ -16,8 +16,7 @@ if !exists("sylt_no_large_first_implies_type")
     syn match syltType /[A-Z][A-Za-z]\*/
 endif
 
-syn keyword syltKeyword if elif else loop break continue in blob ret enum
-                      \ fn pu use is do end and or not as external from case
+syn keyword syltKeyword if enum type def let in end
 
 syn match syltKeyword /->/
 syn match syltKeyword /::/
@@ -31,6 +30,7 @@ syn match syltBool /false/
 
 syn region syltBlock start="\<\%(do\|enum\)\>" end="\<end\>" fold transparent
 syn region syltString start='"' end='"'
+syn region syltForeign start='-[[' end=']]-'
 
 syn keyword syltTodo contained TODO FIXME XXX NOTE
 hi link syltTodo        Todo
@@ -47,32 +47,15 @@ syn keyword syltSelf self
 hi link syltSelf        Identifier
 
 syn match syltOp /\//
-syn match syltOp /++/
-syn match syltOp /--/
-syn match syltOp /*=/
-syn match syltOp /\/=/
-syn match syltOp /+=/
-syn match syltOp /-=/
-syn match syltOp /:=/
-syn match syltOp /!=/
-syn match syltOp /==/
-syn match syltOp /<=/
-syn match syltOp />=/
-
-syn match syltOp /</
-syn match syltOp />/
 syn match syltOp /=/
 syn match syltOp /+/
 syn match syltOp /-/
 syn match syltOp /*/
 syn match syltOp /'/
 
-syn match syltOp /|/
-syn match syltOp /?/
-
 hi link syltOp       Operator
 
-syn match syltComment "//.*$" contains=syltTodo,@Spell
+syn match syltComment "--.*$" contains=syltTodo,@Spell
 hi link syltComment     Comment
 
 " An error for trailing whitespace

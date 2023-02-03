@@ -48,11 +48,11 @@ func! GetSyltIndent(line_num)
 
     let ident = prev_indent
 
-    if match(prev_codeline, '\(\<\%(do\|enum\)\>\|[\|{\|(\)$') != -1
+    if match(prev_codeline, '\(\<\%(let\|def\|type\|enum\)\>\|[\|{\|(\)$') != -1
         let ident = ident + shiftwidth()
     endif
 
-    if match(this_line, '^\s*\(\<end\>\|\<else\>\|]\|}\|)\)$') != -1
+    if match(this_line, '^\s*\(\<end\>\|]\|}\|)\)$') != -1
         let ident = ident - shiftwidth()
     endif
 
