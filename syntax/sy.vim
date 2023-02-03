@@ -21,6 +21,7 @@ syn keyword syltKeyword if enum type def let in end
 syn match syltKeyword /->/
 syn match syltKeyword /::/
 syn match syltKeyword /:/
+syn match syltKeyword /=/
 
 syn match syltFloat /\i\@<![-+]\?\d*\.\@<!\.\d\+\%([eE][+-]\?\d\+\)\?/ display
 syn match syltFloat /\i\@<![-+]\?\d+\.\@<!\.\d\*\%([eE][+-]\?\d\+\)\?/ display
@@ -40,6 +41,7 @@ hi link syltKeyword     Keyword
 
 hi link syltBool        Boolean
 hi link syltString      String
+hi link syltForeign     String
 hi link syltNumber      Number
 hi link syltFloat       Float
 
@@ -47,7 +49,6 @@ syn keyword syltSelf self
 hi link syltSelf        Identifier
 
 syn match syltOp /\//
-syn match syltOp /=/
 syn match syltOp /+/
 syn match syltOp /-/
 syn match syltOp /*/
