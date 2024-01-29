@@ -10,34 +10,18 @@ if exists("b:current_syntax") && b:current_syntax == "sy"
 endif
 let b:current_syntax = "sy"
 
-syn keyword syltType bool int float void str
+syn keyword syltType Bool Int Real Str
+syn match syltType /[A-Z][A-Za-z]\*/
 
-if !exists("sylt_no_large_first_implies_type")
-    syn match syltType /[A-Z][A-Za-z]\*/
-endif
+hi link syltType        Type
 
-syn keyword syltKeyword if enum type def let in end
+syn keyword syltKeyword mod enum type def let in end match with forall foreign
 
-syn match syltKeyword /->/
-syn match syltKeyword /::/
-syn match syltKeyword /:/
-syn match syltKeyword /=/
-
-syn match syltFloat /\i\@<![-+]\?\d*\.\@<!\.\d\+\%([eE][+-]\?\d\+\)\?/ display
-syn match syltFloat /\i\@<![-+]\?\d+\.\@<!\.\d\*\%([eE][+-]\?\d\+\)\?/ display
-syn match syltNumber /\i\@<![-+]\?\d\+\%([eE][+-]\?\d\+\)\?/ display
-syn match syltBool /true/ 
-syn match syltBool /false/ 
-
-syn region syltBlock start="\<\%(do\|enum\)\>" end="\<end\>" fold transparent
 syn region syltString start='"' end='"'
 syn region syltForeign start='-[[' end=']]-'
 
 syn keyword syltTodo contained TODO FIXME XXX NOTE
 hi link syltTodo        Todo
-
-hi link syltType        Type
-hi link syltKeyword     Keyword
 
 hi link syltBool        Boolean
 hi link syltString      String
@@ -45,16 +29,28 @@ hi link syltForeign     String
 hi link syltNumber      Number
 hi link syltFloat       Float
 
-syn keyword syltSelf self
-hi link syltSelf        Identifier
-
 syn match syltOp /\//
 syn match syltOp /+/
 syn match syltOp /-/
 syn match syltOp /*/
 syn match syltOp /'/
+syn match syltOp /#/
+syn match syltOp /$/
 
 hi link syltOp       Operator
+
+syn match syltKeyword /->/
+syn match syltKeyword /-\[\[/
+syn match syltKeyword /]]-/
+syn match syltKeyword /:/
+syn match syltKeyword /=/
+
+syn match syltFloat /\i\@<![-+]\?\d+\.\@<!\.\d\*\%([eE][+-]\?\d\+\)\?/ display
+syn match syltNumber /\i\@<![-+]\?\d\+\%([eE][+-]\?\d\+\)\?/ display
+syn match syltBool /true/ 
+syn match syltBool /false/ 
+
+hi link syltKeyword     Keyword
 
 syn match syltComment "--.*$" contains=syltTodo,@Spell
 hi link syltComment     Comment
