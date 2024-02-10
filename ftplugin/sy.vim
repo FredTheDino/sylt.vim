@@ -13,7 +13,7 @@ set cpo&vim
 if exists("loaded_matchit")
     let b:match_ignorecase = 0
     " Works okay, does not consider case when do is implicit (fn ->)
-    let b:match_words .= '\<\%(match|enum\)\>:\<end\>'
+    let b:match_words = '\<\%(match|enum\)\>:\<end\>'
     let b:match_words .= '\<-\[\[\>:\<\]\]-\>'
     let b:match_skip = 's:syltComment\|syltString'
 endif " exists("loaded_matchit")

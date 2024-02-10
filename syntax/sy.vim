@@ -10,7 +10,7 @@ if exists("b:current_syntax") && b:current_syntax == "sy"
 endif
 
 
-syn keyword syltKeyword mod enum type def let in end match with forall foreign class instance
+syn keyword syltKeyword mod enum type def let in if end match with forall foreign class instance
 
 syn region syltString start=/\v"/ skip=/\v\\./ end=/\v"/
 
